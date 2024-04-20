@@ -1,0 +1,6 @@
+packages:
+  - btop
+  - git
+  - qemu-system 
+  - libvirt-daemon-system
+

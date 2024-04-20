@@ -1,0 +1,26 @@
+version: 3
+
+images:
+  base_image:
+    name: quay.io/fedora/fedora:latest
+
+dependencies:
+  ansible_core:
+    package_pip: ansible-core
+  ansible_runner:
+    package_pip: ansible-runner
+  system:
+  - openssh-clients
+  - sshpass
+  galaxy:
+    collections:
+      - name: prometheus.prometheus
+      - name: ansible.posix
+
+additional_build_files:
+  - src: /home/alfred/.ssh/ansible-ee
+    dest: scripts
+
+additional_build_steps:
+  append_final:
+    - ADD _build/scripts/ansible-ee /runner/.ssh/id_ed25519

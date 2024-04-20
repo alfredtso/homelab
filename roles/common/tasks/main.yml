@@ -1,0 +1,7 @@
+- name: Install packages
+  import_tasks: tasks/debian.yml
+  when: ansible_facts['os_family']|lower == 'debian'
+
+- name: Install packages
+  import_tasks: tasks/redhat.yml
+  when: ansible_facts['os_family']|lower == 'redhat'

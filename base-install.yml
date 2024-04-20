@@ -1,0 +1,7 @@
+- name: Install packages
+  hosts: lauren
+  become: true
+  gather_facts: true
+  roles:
+  - role: common
+
