@@ -3,3 +3,31 @@
     name: "{{ item }}"
     state: present
   loop: "{{ packages }}"
+
+- name: Ensure copy Podman's install script to remote
+  ansible.builtin.copy:
+    src: files/install_pod.sh
+    dest: /tmp/install_podman.sh
+    owner: mgmt
+    group: mgmt
+    mode: '0755'
+  tags: podman
+
+- name: Run podman's install script
+  ansible.builtin.command: /tmp/install_podman.sh
+  become: yes
+  tags: podman
+
+- name: Ensure copy Terraform's install script to remote
+  ansible.builtin.copy:
+    src: files/install_terraform_rhel.sh
+    dest: /tmp/install_terraform_rhel.sh
+    owner: mgmt
+    group: mgmt
+    mode: '0755'
+  tags: terraform
+
+- name: Run Terraform's install script
+  ansible.builtin.command: /tmp/install_terraform_rhel.sh
+  become: yes
+  tags: terraform

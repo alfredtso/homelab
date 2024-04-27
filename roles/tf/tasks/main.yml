@@ -1,0 +1,12 @@
+- name: Copy TF files to remote
+  ansible.builtin.copy:
+    src: files/terraform
+    dest: /home/mgmt/iac
+    owner: mgmt
+    group: mgmt
+    mode: '0755'
+
+- name: Basic deploy of a service
+  community.general.terraform:
+    project_path: /home/mgmt/iac/terraform
+    state: present

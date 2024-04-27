@@ -1,0 +1,14 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+
+packages:
+  - git
+  - htop
+  - jq
+
+users:
+  - name: mgmt
+    groups: admin
+    ssh_authorized_keys:
+

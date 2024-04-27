@@ -2,6 +2,8 @@
   hosts: lauren
   become: true
   gather_facts: true
+  debugger: on_failed
   roles:
-  - role: common
+    #- role: common
+  - role: tf
 

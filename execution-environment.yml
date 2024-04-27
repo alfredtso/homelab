@@ -17,10 +17,3 @@ dependencies:
       - name: prometheus.prometheus
       - name: ansible.posix
 
-additional_build_files:
-  - src: /home/alfred/.ssh/ansible-ee
-    dest: scripts
-
-additional_build_steps:
-  append_final:
-    - ADD _build/scripts/ansible-ee /runner/.ssh/id_ed25519

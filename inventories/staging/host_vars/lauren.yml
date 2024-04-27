@@ -1,6 +1,18 @@
 packages:
   - btop
+  - fzf
   - git
+  - zsh
+  - python3-lxc
+  # KVM
   - qemu-system 
   - libvirt-daemon-system
-
+  - virtinst
+  - cloud-init
+  # LXC 
+  - lxc
+  - libvirt0
+  - bridge-utils
+  - uidmap
+  - curl
+  - ca-certificates

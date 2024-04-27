@@ -1,0 +1,10 @@
+- name: Add docker group
+  ansible.builtin.group:
+    name: docker
+    state: present
+    remote_src: true
+
+- name: Add user to docker group
+  ansible.builtin.user:
+    name: mgmt
+    groups: docker

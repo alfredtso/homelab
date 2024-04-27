@@ -3,3 +3,33 @@
     name: "{{ item }}"
     state: present
   loop: "{{ packages }}"
+  tags: packages
+
+- name: Ensure copy Docker's install script to remote
+  ansible.builtin.copy:
+    src: files/install_docker.sh
+    dest: /tmp/install_docker.sh
+    owner: mgmt
+    group: mgmt
+    mode: '0755'
+  tags: docker
+
+- name: Run Docker's install script
+  ansible.builtin.command: /tmp/install_docker.sh
+  become: yes
+  tags: docker
+
+- name: Ensure copy Terraform's install script to remote
+  ansible.builtin.copy:
+    src: files/install_terraform.sh
+    dest: /tmp/install_terraform.sh
+    owner: mgmt
+    group: mgmt
+    mode: '0755'
+  tags: terraform
+
+- name: Run Terraform's install script
+  ansible.builtin.command: /tmp/install_terraform.sh
+  become: yes
+  tags: terraform
+

@@ -1,0 +1,6 @@
+network:
+  version: 2
+  ethernets:
+    eth0:
+      addresses:
+        - 10.188.251.100/24
